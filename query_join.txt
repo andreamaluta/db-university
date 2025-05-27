@@ -27,7 +27,11 @@ AND `teachers`.`surname` = 'Amato'
 sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
 nome
 
-
+SELECT DISTINCT `students`.`name`, `students`.`surname`, `degrees`.*, `departments`.*
+FROM `students`
+JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id`
+JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+ORDER BY `students`.`surname` DESC, `students`.`name` DESC
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 
